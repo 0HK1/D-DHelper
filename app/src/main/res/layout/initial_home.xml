@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brown_gray"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:width="335dp"
+        android:height="41dp"
+        android:fontFamily="@font/jim_nightshade"
+        android:text="@string/title_home"
+        android:textColor="@color/scarlet_red"
+        android:textSize="36sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_CharacterSheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:width="332dp"
+        android:height="57dp"
+
+        android:backgroundTint="@color/off_white"
+        android:text="@string/text_button_character"
+        android:textColor="@color/black"
+        android:fontFamily="@font/jim_nightshade"
+        android:textSize="36sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/button_Dice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:width="332dp"
+        android:height="57dp"
+
+        android:textColor="@color/black"
+        android:backgroundTint="@color/off_white"
+        android:text="@string/text_button_dice"
+        android:fontFamily="@font/jim_nightshade"
+        android:textSize="36sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_CharacterSheet" />
+
+    <Button
+        android:id="@+id/button_DamageCalculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:width="332dp"
+        android:height="57dp"
+
+        android:backgroundTint="@color/off_white"
+        android:text="@string/text_button_DamageCalculator"
+        android:textColor="@color/black"
+        android:fontFamily="@font/jim_nightshade"
+        android:textSize="36sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_Dice" />
+
+    <Button
+        android:id="@+id/button_master"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:width="332dp"
+        android:height="57dp"
+
+        android:backgroundTint="@color/off_white"
+        android:text="@string/text_button_master"
+        android:textColor="@color/black"
+        android:fontFamily="@font/jim_nightshade"
+        android:textSize="36sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_DamageCalculator" />
+
+    <Button
+        android:id="@+id/button_config"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+
+        android:layout_marginBottom="16dp"
+
+        android:backgroundTint="@color/crimson_brown"
+        android:text="config"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
