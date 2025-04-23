@@ -3,6 +3,7 @@ package com.ucsal.braodireito.InitialHome;
 import android.app.Activity;
 
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.ucsal.braodireito.R;
@@ -11,7 +12,7 @@ public class ButtonConfig {
     public void setButtonCharacter(Activity activity) {
         Button buttonCharacter = activity.findViewById(R.id.button_CharacterSheet);
         buttonCharacter.setOnClickListener(view ->
-                        Toast.makeText(activity,"Character Sheet", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity,"Character Sheet", Toast.LENGTH_SHORT).show()
         );
     }
     public void setButtonDice(Activity activity){
@@ -33,9 +34,9 @@ public class ButtonConfig {
         );
     }
     public void setButtonConfiguration(Activity activity){
-        Button buttonConfiguration = activity.findViewById(R.id.button_config);
+        ImageView buttonConfiguration = activity.findViewById(R.id.button_config);
         buttonConfiguration.setOnClickListener(view ->
-            Toast.makeText(activity, "Configuration", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Configuration", Toast.LENGTH_SHORT).show()
         );
     }
 
