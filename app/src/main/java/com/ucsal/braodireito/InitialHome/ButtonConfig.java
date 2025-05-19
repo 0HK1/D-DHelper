@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.ucsal.braodireito.DiceScreen.DiceActivity;
+import com.ucsal.braodireito.Dice.DiceActivity;
 import com.ucsal.braodireito.R;
 
 public class ButtonConfig implements ButtonView {

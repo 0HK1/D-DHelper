@@ -8,7 +8,7 @@
     android:background="@color/brown_gray"
     tools:context=".DiceScreen.DiceActivity">
 
-
+    <!-- Ícone e Titulo da Página -->
     <ImageView
         android:id="@+id/icon_mug_svg"
         android:layout_width="66dp"
@@ -36,6 +36,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icon_mug_svg" />
 
+    <!--Botão de Retorno-->
+    <FrameLayout
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="@string/text_description_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/button_back" />
+        <ImageView
+            android:layout_gravity="center|center_vertical"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/back_previous_svg"
+            />
+    </FrameLayout>
+
+    <!-- Botões de Geração de Número -->
     <FrameLayout
         android:id="@+id/frameLayout_d4_dice"
         android:layout_width="332dp"
@@ -351,5 +378,6 @@
             android:text=""
             />
     </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
