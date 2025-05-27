@@ -9,6 +9,7 @@ public class DefaultRandomNumberGenerator implements RandomNumberGenerator {
     public int generate(int number) {
         number++;
         return random.nextInt(number);
+
     }
 }
 

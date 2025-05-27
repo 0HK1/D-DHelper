@@ -11,14 +11,15 @@ import com.ucsal.braodireito.R;
 public class FactoryButtonDice implements ButtonDice {
 
     private final RandomNumberGenerator randomGenerator;
+    private final UnitConverter converter;
 
-    public FactoryButtonDice(RandomNumberGenerator randomGenerator) {
+    public FactoryButtonDice(RandomNumberGenerator randomGenerator, UnitConverter converter) {
         this.randomGenerator = randomGenerator;
+        this.converter = converter;
     }
 
     @Override
     public View buttonDice(Activity activity, int StringTitle, int valueGeneratorNumber) {
-        DpToDx converter = new DpToDx();
         TextButtonValue textValue = new TextButtonValue();
         LinearLayout linearLayout = activity.findViewById(R.id.linearLayoutDice);
 
@@ -26,9 +27,9 @@ public class FactoryButtonDice implements ButtonDice {
         FrameLayout frameLayout = new FrameLayout(activity);
         LinearLayout.LayoutParams frameParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
-                converter.ConverterDpToPx(activity, 57) // altura fixa igual ao XML
+                converter.convert(activity, 57) // altura fixa igual ao XML
         );
-        frameParams.topMargin = converter.ConverterDpToPx(activity, 38);
+        frameParams.topMargin = converter.convert(activity, 38);
         frameLayout.setLayoutParams(frameParams);
         frameLayout.setClickable(true);
         frameLayout.setFocusable(true);
