@@ -1,15 +1,13 @@
 package com.ucsal.braodireito.Dice;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ucsal.braodireito.AbstractViews.ButtonDice;
-import com.ucsal.braodireito.AbstractViews.ButtonDiceService;
-import com.ucsal.braodireito.AbstractViews.DpToDx;
-import com.ucsal.braodireito.AbstractViews.DpToDxAdapter;
-import com.ucsal.braodireito.AbstractViews.FactoryButtonDice;
-import com.ucsal.braodireito.AbstractViews.UnitConverter;
+import com.ucsal.braodireito.AbstractViews.Factory.DefaultDiceFactory;
+import com.ucsal.braodireito.AbstractViews.Factory.DiceFactory;
+import com.ucsal.braodireito.AbstractViews.Factory.ListButtonDice;
 import com.ucsal.braodireito.R;
 
 public class DiceActivity extends AppCompatActivity {
@@ -18,19 +16,15 @@ public class DiceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dice_activity);
-        RandomNumberGenerator rng = new DefaultRandomNumberGenerator();
-        UnitConverter adapter = new DpToDxAdapter(new DpToDx());
-        ButtonDice factory = new FactoryButtonDice(rng, adapter);
-        ButtonDiceService diceService = new ButtonDiceService(factory);
-
-        diceService.getButtonDice().buttonDice(this, R.string.D4, 4);
-        diceService.getButtonDice().buttonDice(this, R.string.D6, 6);
-        diceService.getButtonDice().buttonDice(this, R.string.D8, 8);
-        diceService.getButtonDice().buttonDice(this, R.string.D10, 10);
-        diceService.getButtonDice().buttonDice(this, R.string.D12, 12);
-        diceService.getButtonDice().buttonDice(this, R.string.D20, 20);
-        diceService.getButtonDice().buttonDice(this, R.string.D100, 100);
 
 
+        LinearLayout linearLayout = findViewById(R.id.linearLayoutDice);
+        DiceFactory factory = createFactory();
+        ListButtonDice buttonManager = new ListButtonDice(factory);
+        buttonManager.createAllDiceButtons(this, linearLayout);
+    }
+
+    private DiceFactory createFactory() {
+        return new DefaultDiceFactory(new DefaultRandomNumberGenerator());
     }
 }

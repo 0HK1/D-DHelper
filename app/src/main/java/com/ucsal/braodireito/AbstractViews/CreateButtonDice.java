@@ -6,14 +6,13 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.ucsal.braodireito.Dice.RandomNumberGenerator;
-import com.ucsal.braodireito.R;
 
-public class FactoryButtonDice implements ButtonDice {
+public class CreateButtonDice implements ButtonDice {
 
     private final RandomNumberGenerator randomGenerator;
     private final UnitConverter converter;
 
-    public FactoryButtonDice(RandomNumberGenerator randomGenerator, UnitConverter converter) {
+    public CreateButtonDice(RandomNumberGenerator randomGenerator, UnitConverter converter) {
         this.randomGenerator = randomGenerator;
         this.converter = converter;
     }
@@ -21,7 +20,7 @@ public class FactoryButtonDice implements ButtonDice {
     @Override
     public View buttonDice(Activity activity, int StringTitle, int valueGeneratorNumber) {
         TextButtonValue textValue = new TextButtonValue();
-        LinearLayout linearLayout = activity.findViewById(R.id.linearLayoutDice);
+
 
         // Criação do FrameLayout
         FrameLayout frameLayout = new FrameLayout(activity);
@@ -48,9 +47,6 @@ public class FactoryButtonDice implements ButtonDice {
 
 
         });
-
-        // Adiciona o FrameLayout ao LinearLayout
-        linearLayout.addView(frameLayout);
         return frameLayout;
     }
 }
