@@ -1,10 +1,21 @@
 <resources>
     <string name="app_name">BraçoDireito</string>
     <string name="title_home">BRAÇO DIREITO DO D&amp;D</string>
+    <string name="title_dice">Dice</string>
     <string name="text_button_character">Character Sheet</string>
     <string name="text_button_dice">Dice</string>
     <string name="text_button_master">Master</string>
     <string name="text_button_DamageCalculator">Damage Calculator</string>
     <string name="text_description_button_config">Img Button Config</string>
     <string name="text_description_castle">Img Castle</string>
+    <string name="text_description_mug">Img Mug</string>
+    <string name="text_description_back">Button Back</string>
+    <string name="D4">D4</string>
+    <string name="D6">D6</string>
+    <string name="D8">D8</string>
+    <string name="D10">D10</string>
+    <string name="D12">D12</string>
+    <string name="D20">D20</string>
+    <string name="D100">D100</string>
+
 </resources>

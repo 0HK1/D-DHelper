@@ -10,7 +10,7 @@ public class ViewHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.initial_home);
 
-        ButtonConfig buttonConfig = new ButtonConfig();
+        ButtonView buttonConfig = new ButtonConfig();
 
         buttonConfig.setButtonCharacter(this);
         buttonConfig.setButtonConfiguration(this);
