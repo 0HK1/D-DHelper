@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brown_gray"
+    tools:context=".DiceScreen.DiceActivity">
+
+    <!-- Ícone e Titulo da Página -->
+    <ImageView
+        android:id="@+id/icon_mug_svg"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mug_svg"
+        android:contentDescription="@string/text_description_mug"
+        />
+
+    <TextView
+        android:id="@+id/textView_title_dice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/text_button_dice"
+        android:textColor="@color/crimson_brown"
+        android:textSize="36sp"
+        android:fontFamily="@font/jim_nightshade"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_mug_svg" />
+
+    <!--Botão de Retorno-->
+    <FrameLayout
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="@string/text_description_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/button_back" />
+        <ImageView
+            android:layout_gravity="center|center_vertical"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/back_previous_svg"
+            />
+    </FrameLayout>
+
+    <!-- Botões de Geração de Número -->
+    <FrameLayout
+        android:id="@+id/frameLayout_d4_dice"
+        android:layout_width="332dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="38dp"
+        android:clickable="true"
+        android:focusable="true"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_title_dice" >
+
+        <ImageView
+            android:id="@+id/imageView_backgroud_dice_d4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/button_dice_background" />
+
+        <TextView
+            android:id="@+id/textView_title_D4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_gravity="start|center_vertical"
+            android:textSize="36sp"
+            android:fontFamily="@font/jim_nightshade"
+            android:textColor="@color/black"
+            android:text="@string/D4" />
+
+        <TextView
+            android:id="@+id/button_value_dice_d4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_dice_value"
+            android:minWidth="56dp"
+            android:minHeight="40dp"
+            android:gravity="center_vertical|center"
+            android:textColor="@color/black"
+            android:text=""
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout_d6_dice"
+        android:layout_width="332dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_d4_dice" >
+
+        <ImageView
+            android:id="@+id/button_backgroud_dice_d6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/button_dice_background" />
+
+        <TextView
+            android:id="@+id/textView_title_D6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_gravity="start|center_vertical"
+            android:textSize="36sp"
+            android:fontFamily="@font/jim_nightshade"
+            android:textColor="@color/black"
+            android:text="@string/D6" />
+
+        <TextView
+            android:id="@+id/button_value_dice_d6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_dice_value"
+            android:gravity="center_vertical|center"
+            android:minWidth="56dp"
+            android:minHeight="40dp"
+            android:textColor="@color/black"
+            android:text=""
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout_d8_dice"
+        android:layout_width="332dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_d6_dice" >
+
+        <ImageView
+            android:id="@+id/button_backgroud_dice_d8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/button_dice_background" />
+
+        <TextView
+            android:id="@+id/textView_title_D8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_gravity="start|center_vertical"
+            android:textSize="36sp"
+            android:fontFamily="@font/jim_nightshade"
+            android:textColor="@color/black"
+            android:text="@string/D8" />
+
+        <TextView
+            android:id="@+id/button_value_dice_d8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_dice_value"
+            android:gravity="center_vertical|center"
+            android:minWidth="56dp"
+            android:minHeight="40dp"
+            android:textColor="@color/black"
+            android:text=""
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout_d10_dice"
+        android:layout_width="332dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_d8_dice" >
+
+        <ImageView
+            android:id="@+id/button_backgroud_dice_d10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/button_dice_background" />
+
+        <TextView
+            android:id="@+id/textView_title_D10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_gravity="start|center_vertical"
+            android:textSize="36sp"
+            android:fontFamily="@font/jim_nightshade"
+            android:textColor="@color/black"
+            android:text="@string/D10" />
+
+        <TextView
+            android:id="@+id/button_value_dice_d10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_dice_value"
+            android:gravity="center_vertical|center"
+            android:minWidth="56dp"
+            android:minHeight="40dp"
+            android:textColor="@color/black"
+            android:text=""
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout_d12_dice"
+        android:layout_width="332dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_d10_dice" >
+
+        <ImageView
+            android:id="@+id/button_backgroud_dice_d12"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/button_dice_background" />
+
+        <TextView
+            android:id="@+id/textView_title_D12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_gravity="start|center_vertical"
+            android:textSize="36sp"
+            android:fontFamily="@font/jim_nightshade"
+            android:textColor="@color/black"
+            android:text="@string/D12" />
+
+        <TextView
+            android:id="@+id/button_value_dice_d12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_dice_value"
+            android:gravity="center_vertical|center"
+            android:minWidth="56dp"
+            android:minHeight="40dp"
+            android:textColor="@color/black"
+            android:text=""
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout_d20_dice"
+        android:layout_width="332dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_d12_dice" >
+
+        <ImageView
+            android:id="@+id/button_backgroud_dice_d20"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/button_dice_background" />
+
+        <TextView
+            android:id="@+id/textView_title_D20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_gravity="start|center_vertical"
+            android:textSize="36sp"
+            android:fontFamily="@font/jim_nightshade"
+            android:textColor="@color/black"
+            android:text="@string/D20" />
+
+        <TextView
+            android:id="@+id/button_value_dice_d20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_dice_value"
+            android:gravity="center_vertical|center"
+            android:minWidth="56dp"
+            android:minHeight="40dp"
+            android:textColor="@color/black"
+            android:text=""
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout_d100_dice"
+        android:layout_width="332dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_d20_dice" >
+
+        <ImageView
+            android:id="@+id/button_backgroud_dice_d100"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/button_dice_background" />
+
+        <TextView
+            android:id="@+id/textView_title_D100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_gravity="start|center_vertical"
+            android:textSize="36sp"
+            android:fontFamily="@font/jim_nightshade"
+            android:textColor="@color/black"
+            android:text="@string/D100"/>
+
+        <TextView
+            android:id="@+id/button_value_dice_d100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_dice_value"
+            android:gravity="center_vertical|center"
+            android:textColor="@color/black"
+            android:minWidth="56dp"
+            android:minHeight="40dp"
+
+            android:text=""
+            />
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
