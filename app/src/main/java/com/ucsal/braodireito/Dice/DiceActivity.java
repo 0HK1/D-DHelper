@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ucsal.braodireito.AbstractViews.ButtonDice;
 import com.ucsal.braodireito.AbstractViews.ButtonDiceService;
+import com.ucsal.braodireito.AbstractViews.DpToDx;
+import com.ucsal.braodireito.AbstractViews.DpToDxAdapter;
 import com.ucsal.braodireito.AbstractViews.FactoryButtonDice;
+import com.ucsal.braodireito.AbstractViews.UnitConverter;
 import com.ucsal.braodireito.R;
 
 public class DiceActivity extends AppCompatActivity {
@@ -16,7 +19,8 @@ public class DiceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dice_activity);
         RandomNumberGenerator rng = new DefaultRandomNumberGenerator();
-        ButtonDice factory = new FactoryButtonDice(rng);
+        UnitConverter adapter = new DpToDxAdapter(new DpToDx());
+        ButtonDice factory = new FactoryButtonDice(rng, adapter);
         ButtonDiceService diceService = new ButtonDiceService(factory);
 
         diceService.getButtonDice().buttonDice(this, R.string.D4, 4);
