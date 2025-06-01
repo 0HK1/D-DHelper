@@ -6,14 +6,14 @@ import com.ucsal.braodireito.AbstractViews.CreateButtonDice;
 import com.ucsal.braodireito.AbstractViews.DpToDx;
 import com.ucsal.braodireito.AbstractViews.DpToDxAdapter;
 import com.ucsal.braodireito.AbstractViews.UnitConverter;
-import com.ucsal.braodireito.Dice.RandomNumberGenerator;
+import com.ucsal.braodireito.Dice.Dice;
 
 
 public class DefaultDiceFactory extends DiceFactory {
 
-    private final RandomNumberGenerator generator;
+    private final Dice generator;
 
-    public DefaultDiceFactory(RandomNumberGenerator generator) {
+    public DefaultDiceFactory(Dice generator) {
         this.generator = generator;
     }
 
