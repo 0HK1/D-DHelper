@@ -5,8 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ucsal.braodireito.AbstractViews.ButtonDice;
-import com.ucsal.braodireito.Dice.DefaultRandomNumberGenerator;
-import com.ucsal.braodireito.Dice.RandomNumberGenerator;
+import com.ucsal.braodireito.Dice.StandardDice;
+import com.ucsal.braodireito.Dice.Dice;
 import com.ucsal.braodireito.R;
 
 public class ListButtonDice {
@@ -17,8 +17,6 @@ public class ListButtonDice {
     }
     public void createAllDiceButtons(Activity activity, ViewGroup container) {
         ButtonDice dice = factory.createDice();
-        RandomNumberGenerator rng = new DefaultRandomNumberGenerator();
-
 
         int[] diceIds = {
                 R.string.D4, R.string.D6, R.string.D8,

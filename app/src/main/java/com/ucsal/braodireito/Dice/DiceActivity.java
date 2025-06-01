@@ -25,6 +25,6 @@ public class DiceActivity extends AppCompatActivity {
     }
 
     private DiceFactory createFactory() {
-        return new DefaultDiceFactory(new DefaultRandomNumberGenerator());
+        return new DefaultDiceFactory(new StandardDice());
     }
 }
