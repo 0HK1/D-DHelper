@@ -1,28 +1,21 @@
 package com.ucsal.braodireito.AbstractViews;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import com.ucsal.braodireito.Dice.BonusDiceDecorator;
 import com.ucsal.braodireito.Dice.Dice;
-import com.ucsal.braodireito.Dice.DiceDecorator;
 import com.ucsal.braodireito.Dice.HistoryDiceDecorator;
 import com.ucsal.braodireito.Dice.StandardDice;
 
-import java.util.List;
-
 public class CreateButtonDice implements ButtonDice {
 
-    private Dice dice;
+    private Dice lastDice;
     private final UnitConverter converter;
 
     public CreateButtonDice(Dice randomGenerator, UnitConverter converter) {
-        this.dice = randomGenerator;
+        this.lastDice = randomGenerator;
         this.converter = converter;
     }
 
@@ -48,64 +41,18 @@ public class CreateButtonDice implements ButtonDice {
 
         // Implementa lógica do click com injeção de dependência
         frameLayout.setOnClickListener(view -> {
-            dice = new StandardDice(valueGeneratorNumber);
+            Dice dice = new StandardDice(valueGeneratorNumber);
             dice = new HistoryDiceDecorator(dice);
             int result = dice.generate();
             textValue.SetValueText(String.valueOf(result));
+            this.lastDice = dice;
 
-            // 1) Encontre o HistoryDiceDecorator (se existir) na cadeia de "dice" atual:
-            HistoryDiceDecorator historyDecorator = findHistoryDecorator(dice);
-            showHistory(historyDecorator, activity);
         });
         return frameLayout;
     }
 
-    public static HistoryDiceDecorator findHistoryDecorator(Dice dice) {
-        // 1) Se for exatamente um HistoryDiceDecorator, devolve-o.
-        if (dice instanceof HistoryDiceDecorator) {
-            return (HistoryDiceDecorator) dice;
-        }
-
-        // 2) Se for um decorator genérico (que sabemos herda de DiceDecorator),
-        //    "desempacota" e tenta a chamada recursiva:
-        if (dice instanceof DiceDecorator) {
-            DiceDecorator decorator = (DiceDecorator) dice;
-            return findHistoryDecorator(decorator.decoratedDice);
-        }
-
-        // 3) Se for um StandardDice puro (ou outro tipo de Dice que não seja HistoryDiceDecorator),
-        //    então não existe histórico: devolve null.
-        return null;
+    public Dice getLastDiceCreated() {
+        return lastDice;
     }
 
-    public void showHistory(HistoryDiceDecorator historyDecorator, Activity activity) {
-        if (historyDecorator != null) {
-            // 1) Se não for nulo, recupera a lista de históricos:
-            List<Integer> historico = historyDecorator.getHistory();
-
-            // 2) Converte a lista para um texto legível:
-            String textoHistorico;
-            if (historico.isEmpty()) {
-                textoHistorico = "Ainda não houve rolagens registradas.";
-            } else {
-                textoHistorico = TextUtils.join(", ", historico);
-                textoHistorico = "[ " + textoHistorico + " ]";
-            }
-
-            // 3) Exiba esse texto na sua UI.
-            new AlertDialog.Builder(activity)
-                    .setTitle("Histórico de Rolagens")
-                    .setMessage(textoHistorico)
-                    .setPositiveButton("OK", null)
-                    .show();
-
-            //   Ou simplesmente setar o texto num TextView já presente no layout:
-            // TextView tv = findViewById(R.id.historyTextView);
-            // tv.setText(textoHistorico);
-
-        } else {
-            // Se historyDecorator for nulo, significa que não há HistoryDiceDecorator na cadeia:
-            Toast.makeText(activity, "Este dado não está registrando histórico.", Toast.LENGTH_SHORT).show();
-        }
-    }
 }
