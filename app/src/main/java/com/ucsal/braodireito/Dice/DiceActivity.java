@@ -25,6 +25,10 @@ public class DiceActivity extends AppCompatActivity {
     }
 
     private DiceFactory createFactory() {
-        return new DefaultDiceFactory(new StandardDice());
+        Dice dice = new StandardDice();
+        dice = new BonusDiceDecorator(dice,2);
+        dice = new HistoryDiceDecorator(dice);
+
+        return new DefaultDiceFactory(dice);
     }
 }
