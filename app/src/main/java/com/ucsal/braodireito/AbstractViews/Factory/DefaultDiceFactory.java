@@ -7,6 +7,7 @@ import com.ucsal.braodireito.AbstractViews.DpToDx;
 import com.ucsal.braodireito.AbstractViews.DpToDxAdapter;
 import com.ucsal.braodireito.AbstractViews.UnitConverter;
 import com.ucsal.braodireito.Dice.Dice;
+import com.ucsal.braodireito.Dice.StandardDice;
 
 
 public class DefaultDiceFactory extends DiceFactory {
