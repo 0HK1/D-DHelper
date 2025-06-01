@@ -1,10 +1,11 @@
 package com.ucsal.braodireito.Dice;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class HistoryDiceDecorator extends DiceDecorator {
-    private static List<Integer> history = new ArrayList<>();
+    private static final List<Integer> history = new ArrayList<>();
 
     public HistoryDiceDecorator(Dice decoratedDice) {
         super(decoratedDice);
@@ -18,6 +19,6 @@ public class HistoryDiceDecorator extends DiceDecorator {
     }
 
     public static List<Integer> getHistory() {
-        return history;
+        return Collections.unmodifiableList(history);
     }
 }
