@@ -1,7 +1,7 @@
 package com.ucsal.braodireito.Dice;
 
 public abstract class DiceDecorator implements Dice{
-    protected Dice decoratedDice;
+    public Dice decoratedDice;
 
     public DiceDecorator(Dice decoratedDice) {
         this.decoratedDice = decoratedDice;
