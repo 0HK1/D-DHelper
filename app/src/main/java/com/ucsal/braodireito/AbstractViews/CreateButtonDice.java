@@ -30,7 +30,6 @@ public class CreateButtonDice implements ButtonDice {
     public View buttonDice(Activity activity, int StringTitle, int valueGeneratorNumber) {
         TextButtonValue textValue = new TextButtonValue();
 
-
         // Criação do FrameLayout
         FrameLayout frameLayout = new FrameLayout(activity);
         LinearLayout.LayoutParams frameParams = new LinearLayout.LayoutParams(
@@ -56,39 +55,9 @@ public class CreateButtonDice implements ButtonDice {
 
             // 1) Encontre o HistoryDiceDecorator (se existir) na cadeia de "dice" atual:
             HistoryDiceDecorator historyDecorator = findHistoryDecorator(dice);
-
-            if (historyDecorator != null) {
-                // 2) Se não for nulo, recupera a lista de históricos:
-                List<Integer> historico = historyDecorator.getHistory();
-
-                // 3) Converte a lista para um texto legível:
-                String textoHistorico;
-                if (historico.isEmpty()) {
-                    textoHistorico = "Ainda não houve rolagens registradas.";
-                } else {
-                    textoHistorico = TextUtils.join(", ", historico);
-                    textoHistorico = "[ " + textoHistorico + " ]";
-                }
-
-                // 4) Exiba esse texto na sua UI.
-                new AlertDialog.Builder(activity)
-                        .setTitle("Histórico de Rolagens")
-                        .setMessage(textoHistorico)
-                        .setPositiveButton("OK", null)
-                        .show();
-
-                //   Ou simplesmente setar o texto num TextView já presente no layout:
-                // TextView tv = findViewById(R.id.historyTextView);
-                // tv.setText(textoHistorico);
-
-            } else {
-                // Se historyDecorator for nulo, significa que não há HistoryDiceDecorator na cadeia:
-                Toast.makeText(activity, "Este dado não está registrando histórico.", Toast.LENGTH_SHORT).show();
-            }
-
+            showHistory(historyDecorator, activity);
         });
         return frameLayout;
-
     }
 
     public static HistoryDiceDecorator findHistoryDecorator(Dice dice) {
@@ -107,5 +76,36 @@ public class CreateButtonDice implements ButtonDice {
         // 3) Se for um StandardDice puro (ou outro tipo de Dice que não seja HistoryDiceDecorator),
         //    então não existe histórico: devolve null.
         return null;
+    }
+
+    public void showHistory(HistoryDiceDecorator historyDecorator, Activity activity) {
+        if (historyDecorator != null) {
+            // 1) Se não for nulo, recupera a lista de históricos:
+            List<Integer> historico = historyDecorator.getHistory();
+
+            // 2) Converte a lista para um texto legível:
+            String textoHistorico;
+            if (historico.isEmpty()) {
+                textoHistorico = "Ainda não houve rolagens registradas.";
+            } else {
+                textoHistorico = TextUtils.join(", ", historico);
+                textoHistorico = "[ " + textoHistorico + " ]";
+            }
+
+            // 3) Exiba esse texto na sua UI.
+            new AlertDialog.Builder(activity)
+                    .setTitle("Histórico de Rolagens")
+                    .setMessage(textoHistorico)
+                    .setPositiveButton("OK", null)
+                    .show();
+
+            //   Ou simplesmente setar o texto num TextView já presente no layout:
+            // TextView tv = findViewById(R.id.historyTextView);
+            // tv.setText(textoHistorico);
+
+        } else {
+            // Se historyDecorator for nulo, significa que não há HistoryDiceDecorator na cadeia:
+            Toast.makeText(activity, "Este dado não está registrando histórico.", Toast.LENGTH_SHORT).show();
+        }
     }
 }
