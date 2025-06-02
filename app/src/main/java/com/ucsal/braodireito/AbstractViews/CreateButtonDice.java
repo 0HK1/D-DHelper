@@ -5,22 +5,23 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.ucsal.braodireito.Dice.RandomNumberGenerator;
+import com.ucsal.braodireito.Dice.Dice;
+import com.ucsal.braodireito.Dice.HistoryDiceDecorator;
+import com.ucsal.braodireito.Dice.StandardDice;
 
 public class CreateButtonDice implements ButtonDice {
 
-    private final RandomNumberGenerator randomGenerator;
+    private Dice lastDice;
     private final UnitConverter converter;
 
-    public CreateButtonDice(RandomNumberGenerator randomGenerator, UnitConverter converter) {
-        this.randomGenerator = randomGenerator;
+    public CreateButtonDice(Dice randomGenerator, UnitConverter converter) {
+        this.lastDice = randomGenerator;
         this.converter = converter;
     }
 
     @Override
     public View buttonDice(Activity activity, int StringTitle, int valueGeneratorNumber) {
         TextButtonValue textValue = new TextButtonValue();
-
 
         // Criação do FrameLayout
         FrameLayout frameLayout = new FrameLayout(activity);
@@ -40,13 +41,18 @@ public class CreateButtonDice implements ButtonDice {
 
         // Implementa lógica do click com injeção de dependência
         frameLayout.setOnClickListener(view -> {
-
-
-            int result = randomGenerator.generate(valueGeneratorNumber);
+            Dice dice = new StandardDice(valueGeneratorNumber);
+            dice = new HistoryDiceDecorator(dice);
+            int result = dice.generate();
             textValue.SetValueText(String.valueOf(result));
-
+            this.lastDice = dice;
 
         });
         return frameLayout;
     }
+
+    public Dice getLastDiceCreated() {
+        return lastDice;
+    }
+
 }
